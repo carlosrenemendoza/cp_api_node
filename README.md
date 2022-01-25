@@ -1,0 +1,4 @@
+## 
+## api generica
+### METHODS
+    GET 
