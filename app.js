@@ -8,7 +8,7 @@ const app = express();
  */
 const indexRoutes = require('./routes');
 const bodyParser = require('body-parser');
-// const customerCreate = require('./routes/reportes')
+const plesk = require('./routes/plesk')
 
 
 // Tell the bodyparser middleware to accept more data
@@ -45,6 +45,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/', corsMiddleware, indexRoutes);
-// app.use('/reports', corsMiddleware, customerCreate);
+app.use('/pay', corsMiddleware, plesk);
 
 module.exports = app;

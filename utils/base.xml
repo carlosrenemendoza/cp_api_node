@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<P>
+  <business>
+    <id_company>SNBX</id_company>
+    <id_branch>01SNBXBRNCH</id_branch>
+    <user>dev-pagos</user>
+    <pwd>DIMmer4599*-</pwd>
+  </business>
+  <url>
+    <reference>FACTURA999</reference>
+    <amount>1.00</amount>
+    <moneda>MXN</moneda>
+    <canal>W</canal>
+    <omitir_notif_default>1</omitir_notif_default>
+    <promociones>C</promociones>
+    <st_correo>1</st_correo>
+    <fh_vigencia>27/02/2022</fh_vigencia>
+    <mail_cliente>mail@dominio.com</mail_cliente>
+    <datos_adicionales>
+      <data id="1" display="true">
+        <label>Talla</label>
+        <value>Grande</value>
+      </data>
+      <data id="2" display="false">
+        <label>Color</label>
+        <value>Azul</value>
+      </data>
+    </datos_adicionales>
+    <version>IntegraWPP</version>
+  </url>
+</P>
