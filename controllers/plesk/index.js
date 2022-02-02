@@ -13,13 +13,12 @@ const path = require("path");
 var CryptoJS = require("crypto-js");
 shell.config.silent = true;
 
-let Sandbox = 'https://wppsandbox.mit.com.mx/gen'
+let Sandbox = "https://wppsandbox.mit.com.mx/gen";
 /*==================================================
 = conexion plesk   =
 ===================================================*/
 
 exports.plesk = async (req, res, next) => {
-
   let filePath = path.join(__dirname, "../../utils/base.xml");
   console.log("filePath", filePath);
 
@@ -37,7 +36,7 @@ exports.plesk = async (req, res, next) => {
       var key = "5DCC67393750523CD165F17E1EFADD21";
       var ciphertext = CryptoJS.AES.encrypt(originalString, key).toString();
       console.log("ciphertext: " + ciphertext);
-      req.ciphertext = ciphertext
+      req.ciphertext = ciphertext;
       next();
     }
   });
@@ -53,19 +52,21 @@ exports.plesk = async (req, res, next) => {
 };
 
 exports.Postplesk = async (req, res, next) => {
-  console.log("entre a la funcion Postplesk");
-  console.log("req.ciphertext",req.ciphertext);
+  // console.log("entre a la funcion Postplesk");
+  // console.log("req.ciphertext", req.ciphertext);
 
   let xmlPay = `<pgs>
   <data0>Cadena fija asignada al comercio</data0>
   <data>${req.ciphertext}</data>
-</pgs>`
+  </pgs>`;
+
+  let uri = `${Sandbox}?xml=${xmlPay}`;
+
+  console.log("usri", uri);
   try {
-    let response = await axios.post(`${Sandbox}?xml=${xmlPay}`);
-    console.log("response",response);
+    let response = await axios.post(uri);
+    console.log("response", response);
   } catch (error) {
-    console.log('error ¡¡',error);
+    console.log("error ¡¡", error);
   }
-
-
-}
+};
